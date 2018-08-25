@@ -7,7 +7,7 @@ import { Dispatch } from 'redux';
 import reset from 'styled-reset';
 import './App.css';
 import MainLayout from './layouts/MainLayout';
-import { HomePage, LoginPage } from './pages';
+import { pages } from './pages';
 import { handleInitialData } from './store/actions/shared';
 import { injectGlobal } from './theme';
 import { theme } from './theme';
@@ -36,8 +36,17 @@ class App extends Component<Props> {
           <Router>
             <Switch>
               <MainLayout>
-                <Route component={HomePage} exact={true} path="/" />
-                <Route component={LoginPage} exact={true} path="/login" />
+                {Object.keys(pages).map(p => {
+                  const page = pages[p];
+                  return (
+                    <Route
+                      key={p}
+                      path={page.path}
+                      exact={true}
+                      component={page.component}
+                    />
+                  );
+                })}
               </MainLayout>
             </Switch>
           </Router>

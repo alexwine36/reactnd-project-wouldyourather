@@ -2,6 +2,7 @@ import { Avatar, Hr } from 'mabrg-ui';
 import React, { ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import { pages } from '../../pages';
 import styled from '../../theme';
 import NavContainer from '../NavLayout';
 
@@ -27,10 +28,14 @@ const Navigation = (props: { id?: string }) => {
   return (
     <NavBox>
       <NavContainer>
-        <NavLink exact={true} to="/" activeClassName="active">
+        <NavLink exact={true} to={pages.home.path} activeClassName="active">
           Home
         </NavLink>
-        <NavLink exact={true} to="/new" activeClassName="active">
+        <NavLink
+          exact={true}
+          to={pages.newQuestion.path}
+          activeClassName="active"
+        >
           New
         </NavLink>
         <NavLink exact={true} to="/leader" activeClassName="active">
@@ -48,7 +53,7 @@ const Navigation = (props: { id?: string }) => {
             <Avatar size={32} transparent={true} icon="exit_to_app" />
           </NavLink>
         ) : (
-          <NavLink exact={true} to="/login" activeClassName="active">
+          <NavLink exact={true} to={pages.login.path} activeClassName="active">
             <Avatar size={32} transparent={true} icon="account_circle" />
           </NavLink>
         )}

@@ -1,4 +1,4 @@
-import { Body, Button, Card } from 'mabrg-ui';
+import { Button, Card } from 'mabrg-ui';
 import React from 'react';
 import { Question } from '../../store/reducers/questions';
 import styled from '../../theme';
@@ -29,8 +29,6 @@ const QuestionView = (props: {
         {questions.map(q => (
           <QuestionContainer key={q.id} question={q} />
         ))}
-
-        <Body>Sample</Body>
       </Card.Secondary>
     </Card>
   );

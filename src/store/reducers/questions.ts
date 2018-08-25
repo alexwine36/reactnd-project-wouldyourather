@@ -1,5 +1,6 @@
 export enum QuestionActionType {
   ReceiveQuestions,
+  AddQuestion,
 }
 
 export interface Question {
@@ -27,6 +28,15 @@ export default (state = {}, action: Action) => {
         ...state,
         ...action.questions,
       };
+    case QuestionActionType.AddQuestion:
+      if (action.question) {
+        return {
+          ...state,
+          [action.question.id]: action.question,
+        };
+      }
+      return state;
+
     default:
       return state;
   }
