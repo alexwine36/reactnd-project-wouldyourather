@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { AuthenticationCheck } from '../../atoms';
+import { AuthenticationCheck, QuestionStats } from '../../atoms';
 import { AnswerQuestionComponent } from '../../components';
 import { StoreState } from '../../store/reducers';
 import { Questions } from '../../store/reducers/questions';
@@ -17,7 +17,7 @@ const QuestionPage = (props: {
   user?: User;
 }) => {
   const { question_id } = props.match.params;
-
+  const { user } = props;
   const question = props.questions[question_id];
   let answered = false;
   if (props.user) {
@@ -35,12 +35,7 @@ const QuestionPage = (props: {
   }
 
   if (answered) {
-    return (
-      <div>
-        <div>ANSWERED</div>
-        ANSWERED Question
-      </div>
-    );
+    return <QuestionStats question={question} user={user} author={author} />;
   }
   return (
     // <Container>

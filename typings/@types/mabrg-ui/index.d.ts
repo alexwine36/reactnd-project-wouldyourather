@@ -212,6 +212,7 @@ declare module 'mabrg-ui' {
       WidthProps {
     base?: string;
     emphasis?: number;
+    progress: number;
   }
   interface RadioProps extends HTMLAttributes<HTMLInputElement> {
     name?: string;

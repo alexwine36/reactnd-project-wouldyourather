@@ -60,7 +60,7 @@ theme.fonts = {
   body2: {
     fontFamily: 'Raleway',
     fontSize: 14.2,
-    fontWeight: 400,
+    fontWeight: 500,
     letterSpacing: 0.25,
   },
   button: {
