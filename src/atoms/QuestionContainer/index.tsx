@@ -25,10 +25,10 @@ const QuestionContainer = (props: { question: Question; users: Users }) => {
       <Card.Secondary>
         <OverviewContainer>
           <Avatar
-            //   image={author.avatarURL}
+            image={author.avatarURL}
             m={4}
             size={64}
-            image="https://t3.ftcdn.net/jpg/01/46/25/64/500_F_146256441_XsREP0k21eqvYWAMLGwthay9FIEb4xtR.jpg"
+            // image="https://t3.ftcdn.net/jpg/01/46/25/64/500_F_146256441_XsREP0k21eqvYWAMLGwthay9FIEb4xtR.jpg"
           />
           <div>
             <Heading level={5}>Would you rather</Heading>
@@ -42,7 +42,9 @@ const QuestionContainer = (props: { question: Question; users: Users }) => {
       </Card.Secondary>
       <Card.Actions>
         <Card.ActionIcons>
-          <Button outline={true}>View</Button>
+          <Button to={`questions/${question.id}`} outline={true}>
+            View
+          </Button>
         </Card.ActionIcons>
       </Card.Actions>
     </Card>

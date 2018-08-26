@@ -38,7 +38,7 @@ const Navigation = (props: { id?: string }) => {
         >
           New
         </NavLink>
-        <NavLink exact={true} to="/leader" activeClassName="active">
+        <NavLink exact={true} to={pages.leader.path} activeClassName="active">
           Leader
         </NavLink>
       </NavContainer>

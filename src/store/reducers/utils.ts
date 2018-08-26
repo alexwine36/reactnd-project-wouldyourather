@@ -3,6 +3,10 @@ export enum UtilActionType {
   Logout,
 }
 
+export interface Utils {
+  id?: string;
+}
+
 interface Action {
   type: UtilActionType;
   id?: string;

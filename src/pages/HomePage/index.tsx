@@ -16,8 +16,9 @@ const HomePage = (props: { user?: User; questions?: Questions }) => {
 
   if (user && questions) {
     const questArray = Object.keys(questions).map(k => questions[k]);
+    const answeredArray = Object.keys(user.answers).map(k => k);
     answeredQuestions = questArray.filter(e => {
-      return user.questions.includes(e.id) && e;
+      return answeredArray.includes(e.id) && e;
     });
     const aqArray = answeredQuestions.map(e => e.id);
     unansweredQuestions = questArray.filter(e => {

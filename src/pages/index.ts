@@ -1,6 +1,8 @@
 import HomePage from './HomePage';
+import LeaderBoardPage from './LeaderBoardPage';
 import LoginPage from './LoginPage';
 import NewQuestionPage from './NewQuestionPage';
+import QuestionPage from './QuestionPage';
 
 const pages = {
   home: {
@@ -15,6 +17,14 @@ const pages = {
     component: NewQuestionPage,
     path: '/new',
   },
+  leader: {
+    component: LeaderBoardPage,
+    path: '/leader',
+  },
+  question: {
+    component: QuestionPage,
+    path: '/questions/:question_id',
+  },
 };
 
-export { HomePage, LoginPage, NewQuestionPage, pages };
+export { HomePage, LoginPage, NewQuestionPage, LeaderBoardPage, pages };

@@ -1,12 +1,48 @@
 import { hideLoading, showLoading } from 'react-redux-loading';
 import { Dispatch } from 'redux';
-import { saveQuestion } from '../../api';
-import { Question, QuestionActionType } from '../reducers/questions';
+import { saveQuestion, saveQuestionAnswer } from '../../api';
+import {
+  Question,
+  QuestionActionType,
+  QuestionAnswer,
+} from '../reducers/questions';
 
 export const receiveQuestions = (questions: Question[]) => {
   return {
     type: QuestionActionType.ReceiveQuestions,
     questions,
+  };
+};
+
+const answerQuestion = (answer: QuestionAnswer) => {
+  return {
+    type: QuestionActionType.AnswerQuestion,
+    answer,
+  };
+};
+
+// TODO Add a method to update user vote objects
+export const handleAnswerQuestion = (qid: string, answer: string) => {
+  return (dispatch: Dispatch, getState: any) => {
+    const { utils } = getState();
+
+    dispatch(showLoading());
+    console.info('RUN SAVE QUESTION');
+    return saveQuestionAnswer({
+      authedUser: utils.id,
+      qid,
+      answer,
+    })
+      .then(() =>
+        dispatch(
+          answerQuestion({
+            qid,
+            answer,
+            author: utils.id,
+          })
+        )
+      )
+      .then(() => dispatch(hideLoading()));
   };
 };
 
