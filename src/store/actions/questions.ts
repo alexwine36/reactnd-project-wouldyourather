@@ -6,6 +6,7 @@ import {
   QuestionActionType,
   QuestionAnswer,
 } from '../reducers/questions';
+import { handleAddUserQuestion, handleUserAnswerQuestion } from './users';
 
 export const receiveQuestions = (questions: Question[]) => {
   return {
@@ -33,15 +34,22 @@ export const handleAnswerQuestion = (qid: string, answer: string) => {
       qid,
       answer,
     })
-      .then(() =>
+      .then(() => {
         dispatch(
           answerQuestion({
             qid,
             answer,
             author: utils.id,
           })
-        )
-      )
+        );
+        dispatch(
+          handleUserAnswerQuestion({
+            qid,
+            uid: utils.id,
+            value: answer,
+          })
+        );
+      })
       .then(() => dispatch(hideLoading()));
   };
 };
@@ -80,7 +88,15 @@ export const handleAddQuestion = (
       optionOneText,
       optionTwoText,
     })
-      .then(question => dispatch(addQuestion(question)))
+      .then(question => {
+        dispatch(addQuestion(question));
+        dispatch(
+          handleAddUserQuestion({
+            qid: question.id,
+            uid: question.author,
+          })
+        );
+      })
       .then(() => dispatch(hideLoading()));
   };
 };

@@ -4,7 +4,7 @@ import {
 } from 'mabrg-ui';
 import React from 'react';
 import { connect } from 'react-redux';
-import { QuestionView } from '../../atoms';
+import { AuthenticationCheck, QuestionView } from '../../atoms';
 import { Question, Questions } from '../../store/reducers/questions';
 import { User, Users } from '../../store/reducers/users';
 
@@ -29,6 +29,7 @@ const HomePage = (props: { user?: User; questions?: Questions }) => {
 
   return (
     <Container>
+      <AuthenticationCheck />
       <QuestionView
         answeredQuestions={answeredQuestions}
         unansweredQuestions={unansweredQuestions}

@@ -3,23 +3,14 @@ import {
   // Heading
 } from 'mabrg-ui';
 import React from 'react';
-import { connect } from 'react-redux';
-import { Redirect } from 'react-router';
+import { AuthenticationCheck } from '../../atoms';
 import { NewQuestionComponent } from '../../components';
 
 const NewQuestionPage = (props: { id?: string }) => (
   <Container>
-    {!props.id && <Redirect to="/login" />}
+    <AuthenticationCheck />
     <NewQuestionComponent />
   </Container>
 );
 
-const mapStateToProps = (state: {
-  utils: {
-    id?: string;
-  };
-}) => ({
-  id: state.utils.id,
-});
-
-export default connect(mapStateToProps)(NewQuestionPage);
+export default NewQuestionPage;

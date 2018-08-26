@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StoreState } from '../../store/reducers';
-
-// import { Container } from 'mabrg-ui';
+import { AuthenticationCheck } from '../../atoms';
 import { AnswerQuestionComponent } from '../../components';
+import { StoreState } from '../../store/reducers';
 import { Questions } from '../../store/reducers/questions';
 import { User, Users } from '../../store/reducers/users';
 
@@ -45,7 +44,11 @@ const QuestionPage = (props: {
   }
   return (
     // <Container>
-    <AnswerQuestionComponent question={question} author={author} />
+    <React.Fragment>
+      <AuthenticationCheck />
+      <AnswerQuestionComponent question={question} author={author} />
+    </React.Fragment>
+
     // </Container>
   );
 };
