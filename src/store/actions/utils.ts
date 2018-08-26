@@ -9,10 +9,24 @@ const handleLogin = (id: string) => {
   };
 };
 
+const logout = () => {
+  return {
+    type: UtilActionType.Logout,
+  };
+};
+
 export const login = (id: string) => {
   return (dispatch: Dispatch) => {
     dispatch(showLoading());
     dispatch(handleLogin(id));
+    dispatch(hideLoading());
+  };
+};
+
+export const handleLogout = () => {
+  return (dispatch: Dispatch) => {
+    dispatch(showLoading());
+    dispatch(logout());
     dispatch(hideLoading());
   };
 };

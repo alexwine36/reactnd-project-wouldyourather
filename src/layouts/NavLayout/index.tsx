@@ -38,13 +38,16 @@ const NavHover = css`
 
 const NavContainer = styled.div`
   display: inline-flex;
-  & > a {
+  & > a,
+  & > button {
     ${NavCss};
   }
-  & > a > span {
+  & > a > span,
+  & > button > span {
     color: ${props => props.theme.color!.primary};
   }
-  & > a:hover {
+  & > a:hover,
+  & > button:hover {
     ${NavHover};
   }
   & > a.active {

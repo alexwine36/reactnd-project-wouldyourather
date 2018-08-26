@@ -3,6 +3,7 @@ import React, { ReactNode } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { pages } from '../../pages';
+import { handleLogout } from '../../store/actions/utils';
 import styled from '../../theme';
 import NavContainer from '../NavLayout';
 
@@ -23,7 +24,7 @@ const BodyContainer = styled.div`
   justify-content: center;
 `;
 
-const Navigation = (props: { id?: string }) => {
+const Navigation = (props: { id?: string; dispatch: any }) => {
   // console.info(props);
   return (
     <NavBox>
@@ -44,15 +45,22 @@ const Navigation = (props: { id?: string }) => {
       </NavContainer>
       <NavContainer>
         {props.id ? (
-          <NavLink
-            exact={true}
-            to="/sign-out"
-            className="sign-out"
-            activeClassName="active"
+          // <NavLink
+          //   exact={true}
+          //   to="/sign-out"
+          //   className="sign-out"
+          //   activeClassName="active"
+          // >
+          <button
+            onClick={() => {
+              console.info('Pressed');
+              props.dispatch(handleLogout());
+            }}
           >
             <Avatar size={32} transparent={true} icon="exit_to_app" />
-          </NavLink>
+          </button>
         ) : (
+          // </NavLink>
           <NavLink exact={true} to={pages.login.path} activeClassName="active">
             <Avatar size={32} transparent={true} icon="account_circle" />
           </NavLink>
@@ -65,12 +73,13 @@ const Navigation = (props: { id?: string }) => {
 interface Props {
   children: ReactNode;
   id?: string;
+  dispatch: any;
 }
 
 const MainLayout = (props: Props) => (
   <React.Fragment>
     <nav>
-      <Navigation id={props.id} />
+      <Navigation id={props.id} dispatch={props.dispatch} />
       <NavHr base="primary" />
     </nav>
 
