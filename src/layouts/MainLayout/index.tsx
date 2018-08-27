@@ -22,6 +22,7 @@ const BodyContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1em;
 `;
 
 const Navigation = (props: { id?: string; dispatch: any }) => {
@@ -51,6 +52,7 @@ const Navigation = (props: { id?: string; dispatch: any }) => {
           //   className="sign-out"
           //   activeClassName="active"
           // >
+          // TODO Add the name of the logged in user to the page
           <button
             onClick={() => {
               console.info('Pressed');

@@ -1,16 +1,7 @@
-import {
-  Avatar,
-  Button,
-  Card,
-  EventProps,
-  Heading,
-  Label,
-  Radio,
-  RadioGroup,
-} from 'mabrg-ui';
+import { Button, EventProps, Label, Radio, RadioGroup } from 'mabrg-ui';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CenteredContainer } from '../../atoms';
+import { CenteredContainer, QuestionCard } from '../../atoms';
 import { handleAnswerQuestion } from '../../store/actions/questions';
 import { Question } from '../../store/reducers/questions';
 import { User } from '../../store/reducers/users';
@@ -58,59 +49,42 @@ class AnswerQuestionComponent extends Component<Props> {
   public render() {
     const { author, question } = this.props;
     return (
-      <Card
-        style={{
-          maxWidth: 500,
-          width: '80%',
-        }}
-      >
-        <Card.Primary outline={true}>
-          <Heading level={4}>{author.name} asks:</Heading>
-        </Card.Primary>
-        <Card.Secondary>
-          <CenteredContainer>
-            <Avatar m={4} image={author.avatarURL} size={72} />
-          </CenteredContainer>
-          <StyledRadioGroup
+      <QuestionCard author={author}>
+        <StyledRadioGroup
+          style={{
+            maxWidth: 250,
+          }}
+          name="answer"
+          onChange={e => {
+            this.handleChange(e);
+          }}
+        >
+          <StyledLabel>
+            <Radio value="optionOne" />
+            {question.optionOne.text}
+          </StyledLabel>
+          <StyledLabel>
+            <Radio value="optionTwo" />
+            {question.optionTwo.text}
+          </StyledLabel>
+        </StyledRadioGroup>
+        <CenteredContainer>
+          <Button
+            onClick={() => {
+              this.handleSubmit();
+            }}
+            m={4}
             style={{
-              maxWidth: 250,
+              minWidth: '50%',
             }}
-            name="answer"
-            onChange={e => {
-              this.handleChange(e);
-            }}
+            outline={true}
           >
-            <StyledLabel>
-              <Radio value="optionOne" />
-              {question.optionOne.text}
-            </StyledLabel>
-            <StyledLabel>
-              <Radio value="optionTwo" />
-              {question.optionTwo.text}
-            </StyledLabel>
-          </StyledRadioGroup>
-          <CenteredContainer>
-            <Button
-              onClick={() => {
-                this.handleSubmit();
-              }}
-              m={4}
-              style={{
-                minWidth: '50%',
-              }}
-              outline={true}
-            >
-              Submit
-            </Button>
-          </CenteredContainer>
-        </Card.Secondary>
-      </Card>
+            Submit
+          </Button>
+        </CenteredContainer>
+      </QuestionCard>
     );
   }
 }
-
-// const mapStateToProps = (state: StoreState) => {
-
-// }
 
 export default connect()(AnswerQuestionComponent);

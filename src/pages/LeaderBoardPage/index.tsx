@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { LeaderBoardUser } from '../../atoms';
+import { AuthenticationCheck, LeaderBoardUser } from '../../atoms';
 import { StoreState } from '../../store/reducers';
 import { User, Users } from '../../store/reducers/users';
 
@@ -41,6 +41,7 @@ const LeaderBoardPage = (props: Props) => {
 
   return (
     <div>
+      <AuthenticationCheck />
       {users.map(u => (
         <LeaderBoardUser key={u.id} user={u} />
       ))}

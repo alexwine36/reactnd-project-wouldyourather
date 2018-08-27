@@ -4640,9 +4640,9 @@ lru-cache@^4.0.1, lru-cache@^4.1.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-mabrg-ui@^0.3.13:
-  version "0.3.13"
-  resolved "https://registry.yarnpkg.com/mabrg-ui/-/mabrg-ui-0.3.13.tgz#5250ee20e9348cd9aa2810a86e85a42c5adb9f56"
+mabrg-ui@^0.3.14:
+  version "0.3.14"
+  resolved "https://registry.yarnpkg.com/mabrg-ui/-/mabrg-ui-0.3.14.tgz#ed26bd7d55c0565c7220e687c8736ecbcf048479"
   dependencies:
     polished "^1.9.2"
     react-spring "^5.3.8"

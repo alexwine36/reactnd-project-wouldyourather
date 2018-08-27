@@ -15,6 +15,11 @@ const StyledCard = styled(Card)`
       : ''};
 `;
 
+const percentage = (option: number, total: number) => {
+  const dec = option / total;
+  return `${dec * 100}%`;
+};
+
 const OptionStats = (props: {
   option: {
     text: string;
@@ -37,7 +42,7 @@ const OptionStats = (props: {
       <Card.Primary>
         {vote && <Caption>Your answer</Caption>}
         <Body base={vote ? 'primary' : 'black'} emphasis={0} m={4} small={true}>
-          Would you rather {option.text}?
+          {option.text}
         </Body>
       </Card.Primary>
       <Card.Secondary>
@@ -48,7 +53,7 @@ const OptionStats = (props: {
             textAlign: 'center',
           }}
         >
-          {optionVotes} out of {total} votes
+          {optionVotes} out of {total} votes - {percentage(optionVotes, total)}
         </Body>
       </Card.Secondary>
     </StyledCard>
