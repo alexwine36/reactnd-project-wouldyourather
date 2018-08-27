@@ -30,6 +30,7 @@ class NewQuestionComponent extends Component<{
   }
 
   public handleSubmit(e: FormEvent) {
+    // TODO redirect on successful submission
     e.preventDefault();
     const { dispatch } = this.props;
     console.info('Submitted');
@@ -76,15 +77,5 @@ class NewQuestionComponent extends Component<{
     );
   }
 }
-
-// const mapStateToProps = (state: {
-//   utils: {
-//     id: string;
-//   };
-// }) => {
-//   return {
-//     id: state.utils.id,
-//   };
-// };
 
 export default connect()(NewQuestionComponent);

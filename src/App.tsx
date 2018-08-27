@@ -5,7 +5,6 @@ import LoadingBar from 'react-redux-loading';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Dispatch } from 'redux';
 import reset from 'styled-reset';
-import './App.css';
 import MainLayout from './layouts/MainLayout';
 import { pages } from './pages';
 import { handleInitialData } from './store/actions/shared';

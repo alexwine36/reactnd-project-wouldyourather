@@ -73,7 +73,6 @@ const addQuestion = (question: {
   };
 };
 
-// TODO find out why adding a new question is logging out user
 export const handleAddQuestion = (
   optionOneText: string,
   optionTwoText: string
