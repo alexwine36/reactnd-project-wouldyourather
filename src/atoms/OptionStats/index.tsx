@@ -1,4 +1,4 @@
-import { Body, Card, Progress } from 'mabrg-ui';
+import { Body, Caption, Card, Progress } from 'mabrg-ui';
 import React from 'react';
 import styled, { css } from '../../theme';
 
@@ -35,6 +35,7 @@ const OptionStats = (props: {
       }}
     >
       <Card.Primary>
+        {vote && <Caption>Your answer</Caption>}
         <Body base={vote ? 'primary' : 'black'} emphasis={0} m={4} small={true}>
           Would you rather {option.text}?
         </Body>

@@ -1,8 +1,7 @@
 export enum UserActionType {
-  AddUser,
-  ReceiveUser,
-  AddQuestion,
-  AddAnswer,
+  ReceiveUser = '@@users/RECEIVE_USER',
+  AddQuestion = '@@users/ADD_QUESTION',
+  AddAnswer = '@@users/ADD_ANSWER',
 }
 
 export interface User {

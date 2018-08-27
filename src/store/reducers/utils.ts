@@ -1,6 +1,6 @@
 export enum UtilActionType {
-  Login,
-  Logout,
+  Login = '@@utils/LOGIN',
+  Logout = '@@utils/LOGOUT',
 }
 
 export interface Utils {

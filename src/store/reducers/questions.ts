@@ -1,7 +1,7 @@
 export enum QuestionActionType {
-  ReceiveQuestions,
-  AddQuestion,
-  AnswerQuestion,
+  ReceiveQuestions = '@@questions/RECEIVE_QUESTIONS',
+  AddQuestion = '@@questions/ADD_QUESTION',
+  AnswerQuestion = '@@questions/ANSWER_QUESTION',
 }
 
 export interface Question {

@@ -4,3 +4,4 @@ export { default as CenteredContainer } from './CenteredContainer';
 export { default as AuthenticationCheck } from './AuthenticationCheck';
 export { default as QuestionStats } from './QuestionStats';
 export { default as OptionStats } from './OptionStats';
+export { default as LeaderBoardUser } from './LeaderBoardUser';

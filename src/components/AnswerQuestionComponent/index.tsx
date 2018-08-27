@@ -27,6 +27,10 @@ const StyledRadioGroup = styled(RadioGroup)`
     }
   }
 `;
+
+const StyledLabel = styled(Label)`
+  justify-content: normal;
+`;
 interface Props {
   author: User;
   question: Question;
@@ -76,14 +80,14 @@ class AnswerQuestionComponent extends Component<Props> {
               this.handleChange(e);
             }}
           >
-            <Label>
+            <StyledLabel>
               <Radio value="optionOne" />
               {question.optionOne.text}
-            </Label>
-            <Label>
+            </StyledLabel>
+            <StyledLabel>
               <Radio value="optionTwo" />
               {question.optionTwo.text}
-            </Label>
+            </StyledLabel>
           </StyledRadioGroup>
           <CenteredContainer>
             <Button

@@ -22,7 +22,6 @@ const answerQuestion = (answer: QuestionAnswer) => {
   };
 };
 
-// TODO Add a method to update user vote objects
 export const handleAnswerQuestion = (qid: string, answer: string) => {
   return (dispatch: Dispatch, getState: any) => {
     const { utils } = getState();
@@ -74,6 +73,7 @@ const addQuestion = (question: {
   };
 };
 
+// TODO find out why adding a new question is logging out user
 export const handleAddQuestion = (
   optionOneText: string,
   optionTwoText: string
@@ -89,13 +89,15 @@ export const handleAddQuestion = (
       optionTwoText,
     })
       .then(question => {
-        dispatch(addQuestion(question));
-        dispatch(
-          handleAddUserQuestion({
-            qid: question.id,
-            uid: question.author,
-          })
-        );
+        return [
+          dispatch(addQuestion(question)),
+          dispatch(
+            handleAddUserQuestion({
+              qid: question.id,
+              uid: question.author,
+            })
+          ),
+        ];
       })
       .then(() => dispatch(hideLoading()));
   };
