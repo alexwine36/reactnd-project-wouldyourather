@@ -1,6 +1,7 @@
 import { Body, Button, Card, Heading, Input } from 'mabrg-ui';
 import React, { Component, FormEvent } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router';
 import { Dispatch } from 'redux';
 import line from '../../images/line.svg';
 import { handleAddQuestion } from '../../store/actions/questions';
@@ -28,6 +29,7 @@ class NewQuestionComponent extends Component<{
   public state = {
     optionOneText: '',
     optionTwoText: '',
+    complete: false,
   };
 
   public handleChange(event: any) {
@@ -41,17 +43,20 @@ class NewQuestionComponent extends Component<{
   }
 
   public handleSubmit(e: FormEvent) {
-    // TODO redirect on successful submission
     e.preventDefault();
     const { dispatch } = this.props;
     console.info('Submitted');
     const { optionOneText, optionTwoText } = this.state;
     dispatch(handleAddQuestion(optionOneText, optionTwoText));
+    this.setState(() => ({
+      complete: true,
+    }));
   }
   public render() {
-    const { optionOneText, optionTwoText } = this.state;
+    const { optionOneText, optionTwoText, complete } = this.state;
     return (
       <Card>
+        {complete && <Redirect to="/" />}
         <Card.Primary outline={true}>
           <Heading level={4}>Create New Question</Heading>
         </Card.Primary>

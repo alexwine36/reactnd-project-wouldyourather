@@ -2,6 +2,7 @@ import HomePage from './HomePage';
 import LeaderBoardPage from './LeaderBoardPage';
 import LoginPage from './LoginPage';
 import NewQuestionPage from './NewQuestionPage';
+import NotFoundPage from './NotFoundPage';
 import QuestionPage from './QuestionPage';
 
 const pages = {
@@ -15,11 +16,11 @@ const pages = {
   },
   newQuestion: {
     component: NewQuestionPage,
-    path: '/new',
+    path: '/add',
   },
   leader: {
     component: LeaderBoardPage,
-    path: '/leader',
+    path: '/leaderboard',
   },
   question: {
     component: QuestionPage,
@@ -27,4 +28,11 @@ const pages = {
   },
 };
 
-export { HomePage, LoginPage, NewQuestionPage, LeaderBoardPage, pages };
+export {
+  HomePage,
+  LoginPage,
+  NewQuestionPage,
+  LeaderBoardPage,
+  NotFoundPage,
+  pages,
+};

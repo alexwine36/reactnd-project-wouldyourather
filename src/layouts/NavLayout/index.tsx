@@ -53,6 +53,14 @@ const NavContainer = styled.div`
   & > a.active {
     ${NavHover};
   }
+  &.sign-out {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      margin-right: 1em;
+    }
+  }
 `;
 
 export default NavContainer;
