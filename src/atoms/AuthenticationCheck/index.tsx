@@ -1,12 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { pages } from '../../pages';
 import { StoreState } from '../../store/reducers';
-const AuthenticationCheck = (props: { id?: string }) => {
+const AuthenticationCheck = (props: { id?: string; location: any }) => {
   const { id } = props;
+  const redirectTo = props.location.pathname || '/';
   return (
-    <React.Fragment>{!id && <Redirect to={pages.login.path} />}</React.Fragment>
+    <React.Fragment>
+      {!id && (
+        <Redirect
+          to={{
+            pathname: pages.login.path,
+            state: {
+              from: redirectTo,
+            },
+          }}
+        />
+      )}
+    </React.Fragment>
   );
 };
 
@@ -16,4 +28,4 @@ const mapStateToProps = (state: StoreState) => {
   };
 };
 
-export default connect(mapStateToProps)(AuthenticationCheck);
+export default connect(mapStateToProps)(withRouter(AuthenticationCheck));

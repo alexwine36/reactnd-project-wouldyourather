@@ -5,6 +5,7 @@ import { AnswerQuestionComponent } from '../../components';
 import { StoreState } from '../../store/reducers';
 import { Questions } from '../../store/reducers/questions';
 import { User, Users } from '../../store/reducers/users';
+import NotFoundPage from '../NotFoundPage';
 
 const QuestionPage = (props: {
   match: {
@@ -30,6 +31,9 @@ const QuestionPage = (props: {
 
   const author = question && props.users[question.author];
 
+  if (!question) {
+    return <NotFoundPage />;
+  }
   if (!author) {
     return <div>Loading</div>;
   }

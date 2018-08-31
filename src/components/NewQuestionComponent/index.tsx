@@ -54,6 +54,7 @@ class NewQuestionComponent extends Component<{
   }
   public render() {
     const { optionOneText, optionTwoText, complete } = this.state;
+    const valid = optionOneText !== '' && optionTwoText !== '';
     return (
       <Card>
         {complete && <Redirect to="/" />}
@@ -90,6 +91,8 @@ class NewQuestionComponent extends Component<{
             />
             <ButtonContainer>
               <Button
+                type="submit"
+                disabled={!valid}
                 m={4}
                 style={{
                   minWidth: '50%',

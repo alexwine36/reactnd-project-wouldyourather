@@ -70,6 +70,7 @@ class AnswerQuestionComponent extends Component<Props> {
         </StyledRadioGroup>
         <CenteredContainer>
           <Button
+            disabled={this.state.answer === ''}
             onClick={() => {
               this.handleSubmit();
             }}
