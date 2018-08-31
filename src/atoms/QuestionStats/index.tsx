@@ -11,7 +11,6 @@ interface Props {
 }
 
 const QuestionStats = (props: Props) => {
-  console.log(props);
   const { author, question, user } = props;
   const options = ['optionOne', 'optionTwo'];
   const answerMap = options.map(o => {
@@ -22,7 +21,6 @@ const QuestionStats = (props: Props) => {
   options.forEach(o => {
     total += question[o].votes.length;
   });
-  console.log(total);
 
   return (
     <QuestionCard author={author}>

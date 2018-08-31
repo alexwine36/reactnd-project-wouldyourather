@@ -6,6 +6,7 @@ import { StoreState } from '../../store/reducers';
 const AuthenticationCheck = (props: { id?: string; location: any }) => {
   const { id } = props;
   const redirectTo = props.location.pathname || '/';
+
   return (
     <React.Fragment>
       {!id && (

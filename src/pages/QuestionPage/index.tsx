@@ -27,28 +27,22 @@ const QuestionPage = (props: {
     answered = answerArray.includes(question_id);
   }
 
-  console.info(question, props.users);
-
   const author = question && props.users[question.author];
 
-  if (!question) {
-    return <NotFoundPage />;
-  }
-  if (!author) {
-    return <div>Loading</div>;
-  }
-
-  if (answered) {
-    return <QuestionStats question={question} user={user} author={author} />;
-  }
   return (
-    // <Container>
     <React.Fragment>
       <AuthenticationCheck />
-      <AnswerQuestionComponent question={question} author={author} />
+      {!question && <NotFoundPage />}
+      {!author && question && <div>Loading</div>}
+      {answered && (
+        <QuestionStats question={question} user={user} author={author} />
+      )}
+      {!answered &&
+        question &&
+        author && (
+          <AnswerQuestionComponent question={question} author={author} />
+        )}
     </React.Fragment>
-
-    // </Container>
   );
 };
 

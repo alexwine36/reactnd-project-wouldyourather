@@ -55,7 +55,6 @@ const Navigation = (props: { id?: string; user?: User; dispatch: any }) => {
             <button
               key="sign-out"
               onClick={() => {
-                console.info('Pressed');
                 props.dispatch(handleLogout());
               }}
             >

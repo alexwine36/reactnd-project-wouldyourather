@@ -45,7 +45,6 @@ class NewQuestionComponent extends Component<{
   public handleSubmit(e: FormEvent) {
     e.preventDefault();
     const { dispatch } = this.props;
-    console.info('Submitted');
     const { optionOneText, optionTwoText } = this.state;
     dispatch(handleAddQuestion(optionOneText, optionTwoText));
     this.setState(() => ({

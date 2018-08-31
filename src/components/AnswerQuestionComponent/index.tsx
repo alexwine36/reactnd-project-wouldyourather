@@ -35,7 +35,6 @@ class AnswerQuestionComponent extends Component<Props> {
   public handleChange(e: EventProps) {
     const target = e.target;
     const value = target.value;
-    console.info(target, value);
     this.setState(() => ({
       answer: value,
     }));

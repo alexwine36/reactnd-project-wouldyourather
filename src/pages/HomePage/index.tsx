@@ -55,7 +55,6 @@ const HomePage = (props: { user?: User; questions?: Questions }) => {
     unansweredQuestions = questArray.filter(e => {
       return !aqArray.includes(e.id) && e;
     });
-    console.info(questArray, answeredQuestions, unansweredQuestions);
   }
 
   return (

@@ -20,7 +20,6 @@ export const handleAddUserQuestion = (question: UserNewQuestion) => {
 };
 
 export const handleUserAnswerQuestion = (answer: UserAnswerQuestion) => {
-  console.info('ANSWER QUESTION', answer);
   return {
     type: UserActionType.AddAnswer,
     answer,

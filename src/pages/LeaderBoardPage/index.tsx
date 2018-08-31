@@ -37,8 +37,6 @@ const LeaderBoardPage = (props: Props) => {
       return 0;
     });
 
-  console.log(users);
-
   return (
     <div>
       <AuthenticationCheck />

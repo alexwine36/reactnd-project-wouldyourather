@@ -70,7 +70,7 @@ export default (state: Users = {}, action: Action) => {
             },
           },
         };
-        console.info('USER', user);
+
         return {
           ...state,
           ...user,

@@ -13,7 +13,6 @@ const StyledSelect = styled(Select)`
 `;
 
 const LoginView = (props: { users: Users; dispatch: Dispatch<any> }) => {
-  console.info(props);
   let currentUser = '';
   const options = Object.keys(props.users).map(k => {
     const user = props.users[k];
@@ -45,7 +44,6 @@ const LoginView = (props: { users: Users; dispatch: Dispatch<any> }) => {
           <StyledSelect
             options={options}
             onChange={(val: { label: string; value: string }) => {
-              console.info(val);
               currentUser = val.value;
             }}
           />
@@ -54,7 +52,6 @@ const LoginView = (props: { users: Users; dispatch: Dispatch<any> }) => {
               width: '100%',
             }}
             onClick={() => {
-              console.info(currentUser);
               props.dispatch(login(currentUser));
             }}
             m={6}

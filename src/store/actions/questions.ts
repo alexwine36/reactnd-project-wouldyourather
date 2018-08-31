@@ -27,7 +27,6 @@ export const handleAnswerQuestion = (qid: string, answer: string) => {
     const { utils } = getState();
 
     dispatch(showLoading());
-    console.info('RUN SAVE QUESTION');
     return saveQuestionAnswer({
       authedUser: utils.id,
       qid,
@@ -66,7 +65,6 @@ const addQuestion = (question: {
   };
   timestamp: string;
 }) => {
-  console.info(question);
   return {
     type: QuestionActionType.AddQuestion,
     question,
@@ -81,7 +79,7 @@ export const handleAddQuestion = (
     const { utils } = getState();
 
     dispatch(showLoading());
-    console.info('RUN SAVE QUESTION');
+
     return saveQuestion({
       author: utils.id,
       optionOneText,
